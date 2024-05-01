@@ -1,0 +1,39 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup Defold
+        uses: defold/setup-defold@v1
+        with:
+          version: '1.2.191'  # Ensure you use the version you need
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'  # Eclipse Temurin is a popular choice
+          java-version: '11'  # Java 11 is commonly used with Android
+
+      - name: Prepare environment
+        run: |
+          echo "NEW_VERSION_CODE=${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+          echo "NEW_VERSION_NAME=1.0.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+
+      - name: Build project for Android
+        run: |
+          keytool -genkeypair -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Android Debug,O=Android,C=US"
+          python /opt/defold/share/defold/editor/bob.jar --platform armv7-android --variant debug --bundle-output ./build/android --build-report-html ./build/android-report.html --keystore=./debug.keystore --keystore-alias=androiddebugkey --keystore-pass=android --key-alias-pass=android resolve build bundle --android-version-code=${NEW_VERSION_CODE} --android-version=${NEW_VERSION_NAME}
+        env:
+          JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
