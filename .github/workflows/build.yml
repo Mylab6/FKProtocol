@@ -16,9 +16,9 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Setup Defold
-        uses: defold/setup-defold@v1
+        uses: dapetcu21/setup-defold@v3.0.3
         with:
-          version: '1.2.191'  # Ensure you use the version you need
+          version: '1.8.0'  # Ensure you use the version you need
 
       - name: Set up Java
         uses: actions/setup-java@v2
