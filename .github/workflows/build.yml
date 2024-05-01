@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'  # Eclipse Temurin is a popular choice
-          java-version: '11.0.2'  # Java 11 is commonly used with Android
+          java-version: '17.0.11+9'  # Java 11 is commonly used with Android
 
       - name: Prepare environment
         run: |
