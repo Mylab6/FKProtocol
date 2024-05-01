@@ -88,7 +88,7 @@ embedded_instances {
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "textures {\\n"
   "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/assets/Ship.atlas\\\"\\n"
+  "  texture: \\\"/assets/SciFi.atlas\\\"\\n"
   "}\\n"
   "\"\n"
   "  position {\n"
