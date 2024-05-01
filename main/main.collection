@@ -32,7 +32,7 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  position {\n"
-  "    x: 952.0\n"
+  "    x: 0.0\n"
   "    y: 0.0\n"
   "    z: -0.5\n"
   "  }\n"

@@ -1,45 +1,31 @@
 function init(self)
-	print("exist")
-	self.speed = 200
-	self.move_direction = 0
-	self.moving = false
+    msg.post(".", "acquire_input_focus")  -- Acquires input focus for this game object
+    self.speed = 200  -- Speed of the ship
+    self.move_direction = 0  -- Movement direction; -1 for left, 1 for right, 0 for stationary
 end
 
 function on_input(self, action_id, action)
-	print(action_id)
-	if action_id == hash("right") then
-		print("right")
-		self.move_direction = action.pressed and 1 or 0
-		self.moving = action.pressed
-	elseif action_id == hash("left") then
-		print("left")
-		self.move_direction = action.pressed and -1 or 0
-		self.moving = action.pressed
-	end
-	return true  -- Ensure that the on_input function returns true to indicate that the input was consumed
-end
-
-function on_message(self, message_id, message, sender)
-	if message_id == hash("move_left") then
-		self.move_direction = -1
-		self.moving = true
-	elseif message_id == hash("move_right") then
-		self.move_direction = 1
-		self.moving = true
-	elseif message_id == hash("stop_movement") then
-		self.move_direction = 0
-		self.moving = false
-	end
+    -- Check for right and left key presses and releases
+    if action_id == hash("right") then
+        if action.pressed then
+            self.move_direction = 1  -- Move right
+        elseif action.released then
+            self.move_direction = 0  -- Stop moving if the right key is released
+        end
+    elseif action_id == hash("left") then
+        if action.pressed then
+            self.move_direction = -1  -- Move left
+        elseif action.released then
+            self.move_direction = 0  -- Stop moving if the left key is released
+        end
+    end
 end
 
 function update(self, dt)
-	if self.moving then
-		local move_x = self.speed * self.move_direction * dt
-		local pos = go.get_position()  -- Get current position first
-		go.set_position(pos + vmath.vector3(move_x, 0, 0))
-	else
-		-- Code to shoot bullets
-		--self:shoot()
-	end
+    if self.move_direction ~= 0 then
+        -- Calculate new position based on current direction and speed
+        local pos = go.get_position()
+        pos.x = pos.x + self.speed * self.move_direction * dt
+        go.set_position(pos)
+    end
 end
-
