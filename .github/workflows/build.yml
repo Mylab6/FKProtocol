@@ -34,6 +34,6 @@ jobs:
       - name: Build project for Android
         run: |
           keytool -genkeypair -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Android Debug,O=Android,C=US"
-          java -jar $BOB --platform armv7-android --variant debug --bundle-output ./build/android --keystore=./debug.keystore --keystore-alias=androiddebugkey --keystore-pass=android  --archive resolve build bundle
+          java -jar $BOB --platform armv7-android --variant debug --bundle-output ./build/android --keystore=./debug.keystore --keystore-alias=androiddebugkey --keystore-pass=android --bundle-format=apk --archive resolve build bundle
         env:
           JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
