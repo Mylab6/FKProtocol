@@ -38,6 +38,7 @@ jobs:
         env:
           JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
       - name: ListFiles 
+        if: always()
         run: ls -R
       - name: Upload APK
         if: always()
