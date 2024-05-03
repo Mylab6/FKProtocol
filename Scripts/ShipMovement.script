@@ -12,6 +12,14 @@ function on_message(self, message_id, message, sender)
         self.right_bound = message.width /2 
 		self.left_bound = -self.right_bound
     end
+
+	if message_id == hash("move_left") then
+        self.move_direction = -1
+    elseif message_id == hash("move_right") then
+        self.move_direction = 1
+    elseif message_id == hash("stop_movement") then
+        self.move_direction = 0
+    end
 end
 
 function on_input(self, action_id, action)

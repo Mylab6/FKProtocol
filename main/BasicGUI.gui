@@ -1,4 +1,4 @@
-script: ""
+script: "/Scripts/Basic.gui_script"
 textures {
   name: "UI"
   texture: "/assets/UI.atlas"
@@ -101,7 +101,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/leftArrow"
-  id: "leftArrow"
+  id: "left_button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -159,7 +159,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/rightArrow"
-  id: "rightArrow"
+  id: "right_button"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
