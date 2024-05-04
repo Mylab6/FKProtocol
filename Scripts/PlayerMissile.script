@@ -1,5 +1,6 @@
 function init(self)
     self.velocity = vmath.vector3(0, 1, 0)  -- Bullets move up
+    self.speed = 700
 end
 
 function update(self, dt)

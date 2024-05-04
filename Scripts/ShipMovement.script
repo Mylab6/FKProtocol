@@ -4,6 +4,8 @@ function init(self)
     self.move_direction = 0  -- Movement direction; -1 for left, 1 for right, 0 for stationary
 	self.left_bound = -300
     self.right_bound = 300
+    self.timer = 0  -- Timer to control shooting interval
+    self.shoot_interval = 0.2 -- Time interval between shots
 end
 
 function on_message(self, message_id, message, sender)
@@ -39,6 +41,14 @@ function on_input(self, action_id, action)
     end
 end
 
+function shoot(self)
+    print("Shooting")
+    local pos = go.get_position()  -- Get the current position of the ship
+    local bullet_properties = { speed = 700 }  -- Properties to pass to the bullet script
+    local bullet_id = factory.create("#PlayerMissileFactory", pos, nil, bullet_properties, 1.0)
+    -- Optionally set the initial velocity or direction for the bullet here if needed
+end
+
 function update(self, dt)
     if self.move_direction ~= 0 then
         -- Calculate new position based on current direction and speed
@@ -52,4 +62,15 @@ function update(self, dt)
 
         go.set_position(pos)
     end
+
+    if  self.move_direction == 0  then
+        self.timer = self.timer + dt
+        if self.timer >= self.shoot_interval then
+            self.timer = 0  -- Reset timer after shooting
+            shoot()  -- Call the shoot function
+        end
+    else
+        self.timer = 0  -- Reset timer if the ship starts moving
+    end
 end
+
