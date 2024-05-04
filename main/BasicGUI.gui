@@ -70,7 +70,7 @@ nodes {
 nodes {
   position {
     x: 82.0
-    y: 80.0
+    y: 150.0
     z: 0.0
     w: 1.0
   }
@@ -103,7 +103,7 @@ nodes {
   texture: "UI/leftArrow"
   id: "left_button"
   xanchor: XANCHOR_LEFT
-  yanchor: YANCHOR_NONE
+  yanchor: YANCHOR_BOTTOM
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -128,7 +128,7 @@ nodes {
 nodes {
   position {
     x: 555.0
-    y: 84.0
+    y: 150.0
     z: 0.0
     w: 1.0
   }
