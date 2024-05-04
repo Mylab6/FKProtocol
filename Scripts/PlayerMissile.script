@@ -1,4 +1,4 @@
-local game_manager = require "/main/game_manager"
+local game_manager = require "game_manager"
 
 function init(self)
     self.velocity = vmath.vector3(0, 1, 0)  -- Bullets move up

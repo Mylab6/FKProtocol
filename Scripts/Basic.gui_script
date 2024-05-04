@@ -1,4 +1,4 @@
-local game_manager = require "/main/game_manager"
+local game_manager = require "game_manager"
 
 function init(self)
 	msg.post(".", "acquire_input_focus")  -- Necessary for receiving inputs

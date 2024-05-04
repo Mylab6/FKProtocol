@@ -1,4 +1,4 @@
-local game_manager = require "/main/game_manager"
+local game_manager = require "game_manager"
 
 go.property("speed", 200)
 go.property("shoot_interval", 0.3)
