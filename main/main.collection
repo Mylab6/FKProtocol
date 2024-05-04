@@ -1,7 +1,7 @@
 name: "main"
 scale_along_z: 0
 embedded_instances {
-  id: "go"
+  id: "MainGame"
   children: "Ship"
   data: "components {\n"
   "  id: \"main\"\n"
@@ -123,7 +123,7 @@ embedded_instances {
   ""
   position {
     x: 0.0
-    y: -519.0
+    y: -538.0
     z: 0.0
   }
   rotation {
@@ -139,7 +139,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "go1"
+  id: "GUI"
   data: "components {\n"
   "  id: \"BasicGUI\"\n"
   "  component: \"/main/BasicGUI.gui\"\n"

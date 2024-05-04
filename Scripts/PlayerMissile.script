@@ -1,11 +1,22 @@
+local game_manager = require "/main/game_manager"
+
 function init(self)
     self.velocity = vmath.vector3(0, 1, 0)  -- Bullets move up
     self.speed = 700
+    self.lifetime = 2
 end
 
 function update(self, dt)
+    if game_manager.is_paused then 
+        return 
+    end
     local pos = go.get_position()
     pos = pos + self.velocity * dt * self.speed  -- Move the bullet
     go.set_position(pos)
+    self.lifetime = self.lifetime - dt
+    if self.lifetime <= 0 then
+        -- When the timer reaches zero, delete the missile
+        go.delete()
+    end
     -- Optional: Check if the bullet is out of screen bounds and delete if it is
 end
