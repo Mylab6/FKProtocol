@@ -37,9 +37,6 @@ jobs:
           java -jar $BOB --platform armv7-android --variant debug --bundle-output ./build/android --keystore=./debug.keystore --keystore-alias=androiddebugkey --keystore-pass=android.txt --bundle-format=apk --archive resolve build bundle
         env:
           JAVA_HOME: ${{ steps.setup-java.outputs.java-home }}
-      - name: ListFiles 
-        if: always()
-        run: ls -R
       - name: Upload APK
         if: always()
         uses: actions/upload-artifact@v2
