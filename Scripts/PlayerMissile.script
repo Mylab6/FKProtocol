@@ -1,0 +1,10 @@
+function init(self)
+    self.velocity = vmath.vector3(0, 1, 0)  -- Bullets move up
+end
+
+function update(self, dt)
+    local pos = go.get_position()
+    pos = pos + self.velocity * dt * self.speed  -- Move the bullet
+    go.set_position(pos)
+    -- Optional: Check if the bullet is out of screen bounds and delete if it is
+end

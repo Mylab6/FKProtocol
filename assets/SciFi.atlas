@@ -10,6 +10,14 @@ images {
   image: "/assets/KennyAssets_Creative_Commons/kenney_simple-space/PNG/Retina/effect_yellow.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/KennyAssets_Creative_Commons/kenney_space-shooter-extension/PNG/Sprites X2/Missiles/spaceMissiles_001.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/KennyAssets_Creative_Commons/kenney_space-shooter-extension/PNG/Sprites X2/Missiles/spaceMissiles_002.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

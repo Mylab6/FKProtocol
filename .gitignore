@@ -8,3 +8,8 @@ Thumbs.db
 .project
 .cproject
 builtins
+armv7-android/FKProtocol
+debug.keystore
+debug.keystore.pass.txt
+manifest.private.der
+manifest.public.der
