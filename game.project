@@ -3,7 +3,7 @@ title = ZKProtocol
 
 [bootstrap]
 main_collection = /main/main.collectionc
-render = /Scripts/Custom.renderc
+render = /builtins/render/default.renderc
 
 [input]
 game_binding = /input/game.input_bindingc
