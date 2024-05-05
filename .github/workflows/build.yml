@@ -58,3 +58,5 @@ jobs:
           BUTLER_API_KEY: ${{ secrets.BUTLER }}
       - name: Push HTML5 build to Itch.io
         run: butler push build/html5 beatquestgames/zkprotocol:html5
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER }}
