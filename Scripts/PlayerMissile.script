@@ -1,8 +1,9 @@
 local game_manager = require "game_manager"
+go.property("bullet_speed", 9000)
 
 function init(self)
     self.velocity = vmath.vector3(0, 1, 0)  -- Bullets move up
-    self.speed = 700
+ 
     self.lifetime = 2
 end
 
@@ -11,7 +12,7 @@ function update(self, dt)
         return 
     end
     local pos = go.get_position()
-    pos = pos + self.velocity * dt * self.speed  -- Move the bullet
+    pos = pos + self.velocity * dt * self.bullet_speed  -- Move the bullet
     go.set_position(pos)
     self.lifetime = self.lifetime - dt
     if self.lifetime <= 0 then

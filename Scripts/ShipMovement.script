@@ -2,11 +2,11 @@ local game_manager = require "game_manager"
 
 go.property("speed", 200)
 go.property("shoot_interval", 0.3)
-
+go.property("bullet_speed", 1200)
 function init(self)
     self.paused = false
     msg.post(".", "acquire_input_focus")  -- Acquires input focus for this game object
-   --self.speed = 200  -- Speed of the ship
+  
     self.move_direction = 0  -- Movement direction; -1 for left, 1 for right, 0 for stationary
 	self.left_bound = -300
     self.right_bound = 300
@@ -53,11 +53,12 @@ end
 function shoot(self, pos)
     print("Shooting")
     --local pos = go.get_position()  -- Get the current position of the ship
-    local bullet_properties = { speed = 700 }  -- Properties to pass to the bullet script
+    local bullet_properties = { speed = bullet_speed }  -- Properties to pass to the bullet script
     print(pos)
    -- pos = pos + vmath.vector3(20, 20, 0)
     local component = "#PlayerMissileFactory"
-    factory.create(component, pos)
+    local missile =  factory.create(component, pos)
+    print(missile)
     -- local bullet_id = factory.create("#PlayerMissileFactory", pos, nil, bullet_properties, 1.0)
     -- Optionally set the initial velocity or direction for the bullet here if needed
 end

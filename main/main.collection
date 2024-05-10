@@ -1,7 +1,28 @@
 name: "main"
+instances {
+  id: "EnemyParent"
+  prototype: "/Prefabs/EnemyParent.go"
+  position {
+    x: 0.0
+    y: 472.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "MainGame"
+  children: "EnemyParent"
   children: "Ship"
   data: "components {\n"
   "  id: \"main\"\n"
@@ -33,7 +54,7 @@ embedded_instances {
   "\"\n"
   "  position {\n"
   "    x: 0.0\n"
-  "    y: 532.0\n"
+  "    y: 707.0\n"
   "    z: -0.5\n"
   "  }\n"
   "  rotation {\n"
@@ -76,6 +97,21 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"speed\"\n"
+  "    value: \"400.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"shoot_interval\"\n"
+  "    value: \"0.23\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"bullet_speed\"\n"
+  "    value: \"200.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "  property_decls {\n"
   "  }\n"
