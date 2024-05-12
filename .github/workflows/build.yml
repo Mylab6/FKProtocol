@@ -19,7 +19,8 @@ jobs:
       - name: Setup Defold
         uses: dapetcu21/setup-defold@v3.0.3
         with:
-          version: '1.8.0'  # Ensure you use the version you need
+          sha1: '9141d9d3605e3f5d51c71293116d769da2613d39'
+          #version: '1.8.0'  # Ensure you use the version you need
 
       - name: Set up Java
         uses: actions/setup-java@v2
